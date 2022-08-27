@@ -1,0 +1,16 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@6.7.1_webpack@5.74.0/node_modules/css-loader/dist/cjs.js!./node_modules/.pnpm/postcss-loader@7.0.1_qjv4cptcpse3y5hrjkrbb7drda/node_modules/postcss-loader/dist/cjs.js!./node_modules/.pnpm/typed-css-modules-loader@0.0.18/node_modules/typed-css-modules-loader/index.js!./src/index.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+:root{
+   --bgColor:yellowgreen;  
+}
+.qq{
+   height:100px;
+   width:100px;
+   background-color: yellowgreen;
+   background-color: var(--bgColor);
+ }
+.qq h2{
+      --textColor:red; 
+      background-color:var(--textColor);
+   }

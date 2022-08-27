@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熟练使用cssnext</title>
+    <style type="text/css">
+       /* @nest时记得要结合&在一起使用 */
+       .foo{
+        color:red;
+        @nest .parent &{
+            color:blue
+        }
+       }
+       /* 上面的代码就等同于 */
+       .foo{
+        color:red
+       }
+       .parent .foo{
+        color:blue
+       }
+       /* 继续另外的一种形式 */
+       .foo{
+        color:red;
+        @nest:not(&){
+            color:blue
+        }
+       }
+       /* 上面的等同于下面的代码 */
+       .foo{
+        color:red;
+       }
+       :not(.foo){
+        color:blue
+       }
+       /* 一下的使用是几种无效的方法 */
+       /* 无效，因为没有嵌套选择器 */
+       .foo{
+        color:red;
+        @nest .bar{
+            color:blue
+        }
+       }
+       /* 无效，因为不是列表中的所有选择器都包含嵌套选择器 */
+       .foo{
+        color:red;
+        @nest & .bar,.baz{
+            color:blue
+        }
+       }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

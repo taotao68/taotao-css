@@ -1,0 +1,12 @@
+:root{
+   --bgColor:yellowgreen;  
+}
+.qq{
+   height:100px;
+   width:100px;
+   background-color: var(--bgColor);
+   & h2{
+      --textColor:red; 
+      background-color:var(--textColor);
+   }
+ }

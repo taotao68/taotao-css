@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熟悉cssnext demo</title>
+    <style type="text/css">
+        /* :root相当于是定义全部的样式变量 */
+        :root{
+            --colors:red,yellow,lime,aqua,blue,magenta,red;
+            --mouse-x:50%;
+            --mouse-y:50%
+        }
+        body{
+            width:100vw;
+            height:100vh;
+            /* --center是局部变量 */
+            --center:var(--mouse-x) var(--mouse-y,50%);
+            background-image: radial-gradient(
+                circle at var(--center),
+                red,
+                blue 2%,
+                transparent 2%
+            ),conic-gradient(at var(--center),var(--colors));
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        // documentElement 是整个节点数的根节点root,即<html>标签
+      const root=document.documentElement;
+      document.addEventListener('mousemove',(e)=>{
+        // innerWidth innderHeight:表示获取window窗体的内部宽度和高度，不包括用户界面元素，比如窗框。
+        // 下面是获取到中心点的相对于整个网页的x,y的相对位置
+         const x=(e.clientX/innerWidth)*100;
+         const y=(e.clientY/innerHeight)*100;
+        //  新接下来是改变root全局变量中定义的x,y的位置，从而实现改成中心原点的位置
+        root.style.setProperty('--mouse-x',`${x}%`);
+        root.style.setProperty('--mouse-y',`${y}%`);
+      })
+    </script>
+</body>
+</html>
